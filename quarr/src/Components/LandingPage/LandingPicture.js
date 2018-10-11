@@ -6,7 +6,7 @@ const LandingPicture = () => {
     <section
       className="clean-block clean-hero"
       style={{
-        backgroundImage: backgroundPic,
+        backgroundImage: `url(${backgroundPic})`,
         backgroundRepeat: "no-repeat",
         color: "rgba(0, 0, 0, 0.35)"
       }}
