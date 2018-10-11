@@ -4,6 +4,7 @@ import AppNavbar from "./Components/Navigation/Navigation";
 import Footer from "./Components/Footer/Footer";
 import LandingPicture from "./Components/LandingPage/LandingPicture";
 import AboutUs from "./Components/LandingPage/AboutUs";
+import Slider from "./Components/LandingPage/SliderComponent";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <AppNavbar />
         <LandingPicture />
         <AboutUs />
+        <Slider />
         <Footer />
       </React.Fragment>
     );
