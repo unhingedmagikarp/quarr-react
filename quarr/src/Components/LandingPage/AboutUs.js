@@ -14,7 +14,7 @@ const AboutUs = () => {
         </div>
         <div className="row align-items-center">
           <div className="col-md-6">
-            <img className="img-thumbnail" src={ThumbNail} />
+            <img className="img-thumbnail" alt="Thumbnail" src={ThumbNail} />
           </div>
           <div className="col-md-6">
             <h3>Lorem ipsum dolor sit amet</h3>

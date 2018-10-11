@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { UncontrolledCarousel } from "reactstrap";
 import img1 from "../../Assets/img/scenery/image1.jpg";
 import img2 from "../../Assets/img/scenery/image4.jpg";
