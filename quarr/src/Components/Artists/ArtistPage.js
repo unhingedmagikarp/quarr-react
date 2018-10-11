@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ArtistCard from "./ArtistCard";
+import "./Artists.css";
 
 class ArtistPage extends Component {
   state = {
@@ -25,9 +26,12 @@ class ArtistPage extends Component {
 
     if (this.state.artists) {
       return (
-        <section className="clean-block about-us">
+        <section
+          className="clean-block about-us"
+          style={{ backgroundColor: "#F6F6F6" }}
+        >
           <div className="container">
-            <div className="block-heading">
+            <div className="block-heading" style={{ marginTop: "100px" }}>
               <h2 className="text-info">Artists</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc

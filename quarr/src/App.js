@@ -7,6 +7,7 @@ import AppNavbar from "./Components/Navigation/Navigation";
 import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import ArtistPage from "./Components/Artists/ArtistPage";
+import BlogPage from "./Components/Blog/BlogPage";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Switch>
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistPage} exact />
+            <Route path="/blog" component={BlogPage} exact />
           </Switch>
           <Footer />
         </React.Fragment>

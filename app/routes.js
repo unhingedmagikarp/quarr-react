@@ -49,28 +49,17 @@ module.exports = function(app, passport) {
     const name = req.params.name;
     Collection.find({ artistUrl: name }, (err, collections) => {
       if (err || undefined || null || collections.length == 0) {
-        res
-          .status(404)
-          .set("Cache-Control", "max-age=604800")
-          .redirect("/404");
+        res.status(404);
       } else {
-        res
-          .set("Cache-Control", "max-age=604800")
-          .status(200)
-          .render("collection", {
-            item: collections,
-            title: collections[0].artist
-          });
+        res.json(collections).status(200);
       }
     });
   });
 
   // render blog
+  // search blogposts later
   app.get("/blog", (req, res) => {
-    res
-      .set("Cache-Control", "max-age=604800")
-      .status(200)
-      .render("blog");
+    res.status(200);
   });
 
   // show the details of the blogpost
@@ -79,13 +68,14 @@ module.exports = function(app, passport) {
   });
 
   // render contact us page
+  /*
   app.get("/contact-us", (req, res) => {
     res
       .set("Cache-Control", "max-age=604800")
       .status(200)
       .render("contact-us.pug");
   });
-
+  
   // render confirmation page after user contact
   app.get("/thanks", (req, res) => {
     res
@@ -109,7 +99,7 @@ module.exports = function(app, passport) {
       .status(200)
       .render("workshop.pug");
   });
-
+  */
   // ADMIN PAGES
 
   // check if user is logged in
