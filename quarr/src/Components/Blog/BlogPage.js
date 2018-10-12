@@ -6,7 +6,7 @@ const BlogPage = () => {
     <section className="clean-block clean-blog-list dark">
       <div className="container">
         <div className="block-heading">
-          <h2 className="text-info" style={{ marginTop: "100px" }}>
+          <h2 className="text-info" style={{ marginTop: "80px" }}>
             Blog
           </h2>
           <p>

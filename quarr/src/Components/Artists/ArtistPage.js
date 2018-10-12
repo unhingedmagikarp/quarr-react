@@ -21,7 +21,9 @@ class ArtistPage extends Component {
 
   render() {
     if (!this.state.artists) {
-      return <p>Loading...</p>;
+      return (
+        <div style={{ minHeight: "1000px", backgroundColor: "#F6F6F6" }} />
+      );
     }
 
     if (this.state.artists) {
@@ -31,7 +33,7 @@ class ArtistPage extends Component {
           style={{ backgroundColor: "#F6F6F6" }}
         >
           <div className="container">
-            <div className="block-heading" style={{ marginTop: "100px" }}>
+            <div className="block-heading" style={{ marginTop: "80px" }}>
               <h2 className="text-info">Artists</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc

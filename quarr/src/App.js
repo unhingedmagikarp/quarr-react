@@ -8,6 +8,7 @@ import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Components/LandingPage/LandingPage";
 import ArtistPage from "./Components/Artists/ArtistPage";
 import BlogPage from "./Components/Blog/BlogPage";
+import Contact from "./Components/ContactPage/Contact";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistPage} exact />
             <Route path="/blog" component={BlogPage} exact />
+            <Route path="/contact-us" component={Contact} exact />
           </Switch>
           <Footer />
         </React.Fragment>

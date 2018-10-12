@@ -165,11 +165,14 @@ module.exports = function(app, passport) {
   );
 
   // post contact info to db
-  app.post("/contact-us", (req, res) => {
-    Contact.create(req.body).then(userContact => {
-      res.send(userContact);
-    });
-    res.status(200).render("thanks.pug");
+  app.post("/api/contact", (req, res) => {
+    Contact.create(req.body)
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
 
   // get all users from db and display them on admin panel
