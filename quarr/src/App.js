@@ -9,6 +9,7 @@ import LandingPage from "./Components/LandingPage/LandingPage";
 import ArtistPage from "./Components/Artists/ArtistPage";
 import BlogPage from "./Components/Blog/BlogPage";
 import Contact from "./Components/ContactPage/Contact";
+import SuccessPage from "./Components/SuccessPage/SuccessPage";
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path="/artists" component={ArtistPage} exact />
             <Route path="/blog" component={BlogPage} exact />
             <Route path="/contact-us" component={Contact} exact />
+            <Route path="/success" component={SuccessPage} />
           </Switch>
           <Footer />
         </React.Fragment>
