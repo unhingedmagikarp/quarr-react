@@ -12,6 +12,7 @@ import Contact from "./Components/ContactPage/Contact";
 import SuccessPage from "./Components/SuccessPage/SuccessPage";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import Privacy from "./Components/Privacy/Privacy";
+import AdminLogin from "./Components/Admin/AdminLogin/Login";
 
 class App extends Component {
   render() {
@@ -19,7 +20,6 @@ class App extends Component {
       <BrowserRouter>
         <React.Fragment>
           <AppNavbar />
-
           <Switch>
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistPage} exact />
@@ -27,6 +27,7 @@ class App extends Component {
             <Route path="/contact-us" component={Contact} exact />
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
+            <Route path="/admin-login" component={AdminLogin} exact />
             <Route path="*" component={ErrorPage} />
           </Switch>
           <Footer />
