@@ -1,0 +1,11 @@
+.privacyText {
+  text-align: left !important;
+  max-width: 800px !important;
+  margin-bottom: 30px !important;
+}
+
+.privacyDiv {
+  max-width: 800px !important;
+  margin: auto !important;
+  text-align: left !important;
+}
