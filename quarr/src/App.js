@@ -6,13 +6,13 @@ import "./Assets/bootstrap/css/bootstrap.min.css";
 import AppNavbar from "./Components/Navigation/Navigation";
 import Footer from "./Components/Footer/Footer";
 import LandingPage from "./Components/LandingPage/LandingPage";
-import ArtistPage from "./Components/Artists/ArtistPage";
 import BlogPage from "./Components/Blog/BlogPage";
-import Contact from "./Components/ContactPage/Contact";
+import ContactPage from "./Components/ContactPage/ContactPage";
 import SuccessPage from "./Components/SuccessPage/SuccessPage";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import Privacy from "./Components/Privacy/Privacy";
 import AdminLogin from "./Components/Admin/AdminLogin/Login";
+import ArtistSite from "./Components/Artists/ArtistSite";
 
 class App extends Component {
   render() {
@@ -22,9 +22,9 @@ class App extends Component {
           <AppNavbar />
           <Switch>
             <Route path="/" component={LandingPage} exact />
-            <Route path="/artists" component={ArtistPage} exact />
+            <Route path="/artists" component={ArtistSite} exact />
             <Route path="/blog" component={BlogPage} exact />
-            <Route path="/contact-us" component={Contact} exact />
+            <Route path="/contact-us" component={ContactPage} exact />
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
             <Route path="/admin-login" component={AdminLogin} exact />

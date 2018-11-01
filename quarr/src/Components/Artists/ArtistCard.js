@@ -9,6 +9,7 @@ const ArtistCard = props => {
     >
       <div className="card clean-card text-center artistCard">
         <img
+          alt={props.name}
           className="card-img-top w-100 d-block artist"
           src={props.picture}
           style={{ pointerEvents: "none" }}

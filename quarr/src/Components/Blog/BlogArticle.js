@@ -5,7 +5,7 @@ const BlogArticle = props => {
   return (
     <div className="row" style={{ marginBottom: "70px" }}>
       <div className="col-lg-5">
-        <img className="rounded img-fluid" src={Picture} />
+        <img className="rounded img-fluid" src={Picture} alt="TestImage" />
       </div>
       <div className="col-lg-7">
         <h3>Hardcoded blogpost</h3>
