@@ -3,7 +3,7 @@ import ThumbNail from "../../Assets/img/scenery/image5.jpg";
 
 const AboutUs = () => {
   return (
-    <section className="clean-block clean-info dark">
+    <section id="aboutUs" className="clean-block clean-info dark">
       <div className="container">
         <div className="block-heading">
           <h2 className="text-info">About us</h2>

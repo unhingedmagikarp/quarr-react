@@ -1,10 +1,16 @@
 import React from "react";
 import backgroundPic from "../../Assets/img/tech/image4.jpeg";
+import "./LandingPage.css";
 
 const LandingPicture = () => {
+  const scrollButton = () => {
+    const asd = document.getElementsByClassName("clean-hero");
+    window.scrollBy({ top: 600, left: 0, behavior: "smooth" });
+  };
+
   return (
     <section
-      className="clean-block clean-hero"
+      className="clean-block clean-hero smallView"
       style={{
         backgroundImage: `url(${backgroundPic})`,
         backgroundRepeat: "no-repeat",
@@ -17,10 +23,7 @@ const LandingPicture = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam
           urna, dignissim nec auctor in, mattis vitae leo.
         </p>
-        <button
-          className="btn btn-outline-light btn-lg"
-          onClick={window.scrollBy({ top: 10, left: 0, behavior: "smooth" })}
-        >
+        <button className="btn btn-outline-light btn-lg" onClick={scrollButton}>
           Learn More
         </button>
       </div>

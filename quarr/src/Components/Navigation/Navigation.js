@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavButton from "./NavButton";
 import { NavbarToggler, Collapse } from "reactstrap";
+import "./Navigation.css";
 
 class AppNavbar extends Component {
   state = {
@@ -14,7 +15,7 @@ class AppNavbar extends Component {
   };
   render() {
     return (
-      <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+      <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar smallNav">
         <div className="container">
           <a className="navbar-brand logo" href="/">
             Quarr Gallery
