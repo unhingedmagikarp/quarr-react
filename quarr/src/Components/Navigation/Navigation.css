@@ -3,3 +3,32 @@
     min-height: 85px;
   }
 }
+
+.buttonParent {
+  display: flex;
+  border: 1px solid rgb(0, 0, 0, 0.1);
+  border-radius: 5%;
+  margin-right: 32px;
+  max-width: 200px;
+}
+
+.searchIcon {
+  visibility: visible;
+  vertical-align: middle;
+}
+
+.searchDiv {
+  min-height: 39px;
+  border-radius: 5%;
+  opacity: 0.5;
+  background-color: grey;
+  cursor: pointer;
+}
+
+.searchDiv :hover {
+  cursor: pointer;
+}
+
+.searchButton {
+  vertical-align: middle;
+}

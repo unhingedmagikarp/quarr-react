@@ -4,7 +4,6 @@ import "./LandingPage.css";
 
 const LandingPicture = () => {
   const scrollButton = () => {
-    const asd = document.getElementsByClassName("clean-hero");
     window.scrollBy({ top: 600, left: 0, behavior: "smooth" });
   };
 

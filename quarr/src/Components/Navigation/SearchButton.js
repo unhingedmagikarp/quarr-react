@@ -8,24 +8,23 @@ class SearchButton extends Component {
     this.state = {};
   }
 
+  handleChange = event => {
+    this.setState({ searchInfo: event.target.value });
+  };
+
+  showSome = () => {
+    console.log(this.state.searchInfo);
+  };
+
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          border: "1px solid black",
-          marginRight: "32px",
-          maxWidth: "200px"
-        }}
-      >
-        <Input style={{ border: "none" }} />
-        <button style={{ visibility: "hidden" }} onClick={this.showSome}>
-          <Ionicon
-            icon="md-search"
-            className="icon"
-            style={{ visibility: "visible" }}
-          />
-        </button>
+      <div className="buttonParent">
+        <Input style={{ border: "none" }} onChange={this.handleChange} />
+        <div className="searchDiv" onClick={this.showSome}>
+          <button className="searchButton" style={{ visibility: "hidden" }}>
+            <Ionicon icon="md-search" className="icon searchIcon" />
+          </button>
+        </div>
       </div>
     );
   }
