@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavButton from "./NavButton";
 import { NavbarToggler, Collapse } from "reactstrap";
 import "./Navigation.css";
+import SearchButton from "./SearchButton";
 
 class AppNavbar extends Component {
   state = {
@@ -13,6 +14,7 @@ class AppNavbar extends Component {
       isOpen: !this.state.isOpen
     });
   };
+
   render() {
     return (
       <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar smallNav">
@@ -23,6 +25,10 @@ class AppNavbar extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <ul className="nav navbar-nav ml-auto">
+              <li>
+                <SearchButton />
+              </li>
+
               <NavButton route={"/"} action={"Home"} key={"Home"} />
               <NavButton
                 route={"/artists"}
