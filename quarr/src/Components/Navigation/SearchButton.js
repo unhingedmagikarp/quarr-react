@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Ionicon from "react-ionicons";
 import { Input } from "reactstrap";
+import axios from "axios";
 
 class SearchButton extends Component {
   constructor(props) {
@@ -13,7 +14,9 @@ class SearchButton extends Component {
   };
 
   showSome = () => {
-    console.log(this.state.searchInfo);
+    axios.get(`/api/search/${this.state.searchInfo}`).then(response => {
+      console.log(response.data);
+    });
   };
 
   render() {
