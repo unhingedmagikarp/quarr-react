@@ -28,7 +28,7 @@ class App extends Component {
             <Route path="/contact-us" component={ContactPage} exact />
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
-            <Route path="/search" component={SearchPage} exact />
+            <Route path="/search" component={SearchPage} />
             <Route path="/admin-login" component={AdminLogin} exact />
             <Route path="*" component={ErrorPage} />
           </Switch>

@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import Ionicon from "react-ionicons";
 import { Input } from "reactstrap";
 import axios from "axios";
-import { browserHistory } from "react-router-dom";
 
 class SearchButton extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      searchInfo: ""
+    };
   }
 
   handleChange = event => {
@@ -24,11 +25,16 @@ class SearchButton extends Component {
     return (
       <div className="buttonParent">
         <Input style={{ border: "none" }} onChange={this.handleChange} />
-        <div className="searchDiv" onClick={this.showSome}>
+
+        <a
+          className="searchDiv"
+          href={`/search/${this.state.searchInfo}`}
+          onClick={this.showSome}
+        >
           <button className="searchButton" style={{ visibility: "hidden" }}>
             <Ionicon icon="md-search" className="icon searchIcon" />
           </button>
-        </div>
+        </a>
       </div>
     );
   }
