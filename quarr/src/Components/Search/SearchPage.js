@@ -31,7 +31,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -41,7 +44,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -51,7 +57,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -61,7 +70,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -74,7 +86,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -84,7 +99,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -94,7 +112,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -107,7 +128,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -117,7 +141,10 @@ class SearchPage extends Component {
                           type="checkbox"
                           id="formCheck-1"
                         />
-                        <label className="form-check-label" for="formCheck-1">
+                        <label
+                          className="form-check-label"
+                          htmlFor="formCheck-1"
+                        >
                           Paintings
                         </label>
                       </div>
@@ -131,7 +158,7 @@ class SearchPage extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                       <div className="clean-product-item">
                         <div className="image">
-                          <a href="#">
+                          <a href="/">
                             <img
                               className="img-fluid d-block mx-auto"
                               src={TestImage}
@@ -140,7 +167,7 @@ class SearchPage extends Component {
                           </a>
                         </div>
                         <div className="product-name">
-                          <a href="#">Product name</a>
+                          <a href="/">Product name</a>
                         </div>
                         <div className="about">
                           <div className="price">
@@ -152,7 +179,7 @@ class SearchPage extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                       <div className="clean-product-item">
                         <div className="image">
-                          <a href="#">
+                          <a href="/">
                             <img
                               className="img-fluid d-block mx-auto"
                               src={TestImage}
@@ -161,7 +188,7 @@ class SearchPage extends Component {
                           </a>
                         </div>
                         <div className="product-name">
-                          <a href="#">Product name</a>
+                          <a href="/">Product name</a>
                         </div>
                         <div className="about">
                           <div className="price">
@@ -173,7 +200,7 @@ class SearchPage extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                       <div className="clean-product-item">
                         <div className="image">
-                          <a href="#">
+                          <a href="/">
                             <img
                               className="img-fluid d-block mx-auto"
                               src={TestImage}
@@ -182,7 +209,7 @@ class SearchPage extends Component {
                           </a>
                         </div>
                         <div className="product-name">
-                          <a href="#">Product name</a>
+                          <a href="/">Product name</a>
                         </div>
                         <div className="about">
                           <div className="price">
@@ -194,7 +221,7 @@ class SearchPage extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                       <div className="clean-product-item">
                         <div className="image">
-                          <a href="#">
+                          <a href="/">
                             <img
                               className="img-fluid d-block mx-auto"
                               src={TestImage}
@@ -203,7 +230,7 @@ class SearchPage extends Component {
                           </a>
                         </div>
                         <div className="product-name">
-                          <a href="#">Product name</a>
+                          <a href="/">Product name</a>
                         </div>
                         <div className="about">
                           <div className="price">
@@ -215,7 +242,7 @@ class SearchPage extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                       <div className="clean-product-item">
                         <div className="image">
-                          <a href="#">
+                          <a href="/">
                             <img
                               className="img-fluid d-block mx-auto"
                               src={TestImage}
@@ -224,7 +251,7 @@ class SearchPage extends Component {
                           </a>
                         </div>
                         <div className="product-name">
-                          <a href="#">Product name</a>
+                          <a href="/">Product name</a>
                         </div>
                         <div className="about">
                           <div className="price">
@@ -236,7 +263,7 @@ class SearchPage extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                       <div className="clean-product-item">
                         <div className="image">
-                          <a href="#">
+                          <a href="/">
                             <img
                               className="img-fluid d-block mx-auto"
                               src={TestImage}
@@ -245,7 +272,7 @@ class SearchPage extends Component {
                           </a>
                         </div>
                         <div className="product-name">
-                          <a href="#">Product name</a>
+                          <a href="/">Product name</a>
                         </div>
                         <div className="about">
                           <div className="price">
@@ -257,7 +284,7 @@ class SearchPage extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                       <div className="clean-product-item">
                         <div className="image">
-                          <a href="#">
+                          <a href="/">
                             <img
                               className="img-fluid d-block mx-auto"
                               src={TestImage}
@@ -266,7 +293,7 @@ class SearchPage extends Component {
                           </a>
                         </div>
                         <div className="product-name">
-                          <a href="#">Product name</a>
+                          <a href="/">Product name</a>
                         </div>
                         <div className="about">
                           <div className="price">
@@ -278,7 +305,7 @@ class SearchPage extends Component {
                     <div className="col-12 col-md-6 col-lg-4">
                       <div className="clean-product-item">
                         <div className="image">
-                          <a href="#">
+                          <a href="/">
                             <img
                               className="img-fluid d-block mx-auto"
                               src={TestImage}
@@ -287,7 +314,7 @@ class SearchPage extends Component {
                           </a>
                         </div>
                         <div className="product-name">
-                          <a href="#">Product name</a>
+                          <a href="/">Product name</a>
                         </div>
                         <div className="about">
                           <div className="price">
@@ -300,21 +327,27 @@ class SearchPage extends Component {
                   <nav>
                     <ul className="pagination">
                       <li className="page-item disabled">
-                        <a href="#" className="page-link" aria-label="Previous">
+                        <a href="/" className="page-link" aria-label="Previous">
                           <span aria-hidden="true">«</span>
                         </a>
                       </li>
                       <li className="page-item active">
-                        <a className="page-link">1</a>
+                        <a href="/" className="page-link">
+                          1
+                        </a>
                       </li>
                       <li className="page-item ">
-                        <a className="page-link">2</a>
+                        <a href="/" className="page-link">
+                          2
+                        </a>
                       </li>
                       <li className="page-item ">
-                        <a className="page-link">3</a>
+                        <a href="/" className="page-link">
+                          3
+                        </a>
                       </li>
                       <li className="page-item">
-                        <a href="#" className="page-link" aria-label="Next">
+                        <a href="/" className="page-link" aria-label="Next">
                           <span aria-hidden="true">»</span>
                         </a>
                       </li>
