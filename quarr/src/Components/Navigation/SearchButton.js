@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Ionicon from "react-ionicons";
 import { Input } from "reactstrap";
 import axios from "axios";
+import { browserHistory } from "react-router-dom";
 
 class SearchButton extends Component {
   constructor(props) {

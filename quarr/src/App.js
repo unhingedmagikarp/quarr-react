@@ -13,6 +13,7 @@ import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import Privacy from "./Components/Privacy/Privacy";
 import AdminLogin from "./Components/Admin/AdminLogin/Login";
 import ArtistSite from "./Components/Artists/ArtistSite";
+import SearchPage from "./Components/Search/SearchPage";
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
             <Route path="/contact-us" component={ContactPage} exact />
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
+            <Route path="/search" component={SearchPage} exact />
             <Route path="/admin-login" component={AdminLogin} exact />
             <Route path="*" component={ErrorPage} />
           </Switch>
