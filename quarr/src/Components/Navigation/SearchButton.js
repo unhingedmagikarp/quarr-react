@@ -25,15 +25,12 @@ class SearchButton extends Component {
     return (
       <div className="buttonParent">
         <Input style={{ border: "none" }} onChange={this.handleChange} />
-
-        <a
-          className="searchDiv"
-          href={`/search/${this.state.searchInfo}`}
-          onClick={this.showSome}
-        >
-          <button className="searchButton" style={{ visibility: "hidden" }}>
-            <Ionicon icon="md-search" className="icon searchIcon" />
-          </button>
+        <a href={`/search/${this.state.searchInfo}`}>
+          <div className="searchDiv" onClick={this.showSome}>
+            <button className="searchButton" style={{ visibility: "hidden" }}>
+              <Ionicon icon="md-search" className="icon searchIcon" />
+            </button>
+          </div>
         </a>
       </div>
     );
