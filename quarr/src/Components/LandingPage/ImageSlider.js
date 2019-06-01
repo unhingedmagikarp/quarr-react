@@ -25,6 +25,29 @@ const items = [
   }
 ];
 
-const Carousel = () => <UncontrolledCarousel items={items} />;
+class Carousel extends React.Component {
+  state = {};
+
+  componentDidMount() {
+    this.fetchPaintings();
+  }
+
+  fetchPaintings = () => {
+    //axios
+    console.log("mock pictures");
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.images ? (
+          <UncontrolledCarousel items={this.state.images} />
+        ) : (
+          <UncontrolledCarousel items={items} />
+        )}
+      </div>
+    );
+  }
+}
 
 export default Carousel;

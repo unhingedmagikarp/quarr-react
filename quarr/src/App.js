@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter, BrowserRouter } from "react-router-dom";
 
 import "./Assets/bootstrap/css/bootstrap.min.css";
 
@@ -17,6 +17,7 @@ import SearchPage from "./Components/Search/SearchPage";
 
 class App extends Component {
   render() {
+    console.log(this.props);
     return (
       <BrowserRouter>
         <React.Fragment>
@@ -25,7 +26,11 @@ class App extends Component {
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistSite} exact />
             <Route path="/blog" component={BlogPage} exact />
-            <Route path="/contact-us" component={ContactPage} exact />
+            <Route
+              path="/contact-us"
+              component={props => <ContactPage {...this.props} />}
+              exact
+            />
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
             <Route path="/search" component={SearchPage} />
@@ -39,4 +44,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

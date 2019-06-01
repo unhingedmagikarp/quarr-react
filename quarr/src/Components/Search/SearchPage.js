@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import TestImage from "../../Assets/img/tech/image2.jpg";
 
 class SearchPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {};
 
   render() {
     return (

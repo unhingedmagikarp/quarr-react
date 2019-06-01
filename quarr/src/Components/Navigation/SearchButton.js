@@ -4,12 +4,9 @@ import { Input } from "reactstrap";
 import axios from "axios";
 
 class SearchButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchInfo: ""
-    };
-  }
+  state = {
+    searchInfo: ""
+  };
 
   handleChange = event => {
     this.setState({ searchInfo: event.target.value });

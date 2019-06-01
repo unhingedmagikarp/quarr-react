@@ -4,20 +4,9 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 
 class Contact extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      name: "",
-      subject: "",
-      email: "",
-      message: "",
-      fireRedirect: false
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  state = {
+    fireRedirect: false
+  };
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });

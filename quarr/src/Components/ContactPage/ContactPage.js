@@ -3,7 +3,8 @@ import Contact from "./Contact";
 import MetaTags from "react-meta-tags";
 import MetaImage from "../../Assets/img/ls.jpg";
 
-const ContactPage = () => {
+const ContactPage = props => {
+  console.log(props);
   return (
     <React.Fragment>
       <MetaTags>
@@ -21,7 +22,7 @@ const ContactPage = () => {
           content="http://www.quarrgallery.com/contact-us"
         />
       </MetaTags>
-      <Contact />
+      <Contact props={props} />
     </React.Fragment>
   );
 };

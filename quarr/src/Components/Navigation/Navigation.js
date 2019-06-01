@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import NavButton from "./NavButton";
-import { NavbarToggler, Collapse } from "reactstrap";
+import { NavbarToggler, Collapse, Nav, NavItem, NavLink } from "reactstrap";
 import "./Navigation.css";
 import SearchButton from "./SearchButton";
+import { Link } from "react-router-dom";
 
 class AppNavbar extends Component {
   state = {
@@ -24,24 +24,31 @@ class AppNavbar extends Component {
           </a>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <ul className="nav navbar-nav ml-auto">
-              <li>
+            <Nav className="nav navbar-nav ml-auto" navbar>
+              <NavItem>
                 <SearchButton />
-              </li>
-
-              <NavButton route={"/"} action={"Home"} key={"Home"} />
-              <NavButton
-                route={"/artists"}
-                action={"Artists"}
-                key={"Artists"}
-              />
-              <NavButton route={"/blog"} action={"Blog"} key={"Blog"} />
-              <NavButton
-                route={"/contact-us"}
-                action={"Contact us"}
-                key={"Contact"}
-              />
-            </ul>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/">
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/artists">
+                  Artists
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/blog">
+                  Blog
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} to="/contact-us">
+                  Contact
+                </NavLink>
+              </NavItem>
+            </Nav>
           </Collapse>
         </div>
       </nav>
