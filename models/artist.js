@@ -13,7 +13,7 @@ const artistSchema = mongoose.Schema({
     type: String,
     required: false
   },
-  artistUrl: {
+  slug: {
     type: String,
     required: false
   },

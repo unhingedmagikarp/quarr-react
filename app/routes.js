@@ -1,4 +1,4 @@
-module.exports = function(app, passport) {
+module.exports = function(app) {
   // Bodyparser to receive input from html body
   const bodyParser = require("body-parser");
   app
@@ -17,11 +17,11 @@ module.exports = function(app, passport) {
   app.use(busboy()).use(busboyBodyParser());
 
   // models
-  const Contact = require("./models/contact");
-  const User = require("./models/user");
-  const Artist = require("./models/artist");
-  const Art = require("./models/artwork");
-  const Collection = require("./models/collection");
+  const Contact = require("../models/contact");
+  const User = require("../models/user");
+  const Artist = require("../models/artist");
+  const Art = require("../models/artwork");
+  const Collection = require("../models/collection");
 
   // configuration for S3 bucket
   const IAM_USER_SECRET = "TfzIdLSSVEwnlarEWfhB/N4SCEwbKTskMGQ/5IR4";
@@ -31,29 +31,6 @@ module.exports = function(app, passport) {
   // render homepage
   app.get("/", (req, res) => {
     res.send("so healthy").status(200);
-  });
-
-  // render every artist from db
-  app.get("/api/artists", (req, res) => {
-    Artist.find({}, (err, artists) => {
-      if (err) {
-        res.status(404);
-      } else {
-        res.json(artists).status(200);
-      }
-    });
-  });
-
-  // render selected artist
-  app.get("/artists/:name", (req, res) => {
-    const name = req.params.name;
-    Collection.find({ artistUrl: name }, (err, collections) => {
-      if (err || undefined || null || collections.length == 0) {
-        res.status(404);
-      } else {
-        res.json(collections).status(200);
-      }
-    });
   });
 
   // render blog
@@ -103,66 +80,66 @@ module.exports = function(app, passport) {
   // ADMIN PAGES
 
   // check if user is logged in
-  function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.status(403).redirect("/403");
-  }
+  // function isLoggedIn(req, res, next) {
+  //   if (req.isAuthenticated()) {
+  //     return next();
+  //   }
+  //   res.status(403).redirect("/403");
+  // }
 
-  // admin profile
-  app.get("/admin-profile", (req, res) => {
-    res
-      .set("Cache-Control", "max-age=604800")
-      .status(200)
-      .render("admin_profile.pug");
-  });
+  // // admin profile
+  // app.get("/admin-profile", (req, res) => {
+  //   res
+  //     .set("Cache-Control", "max-age=604800")
+  //     .status(200)
+  //     .render("admin_profile.pug");
+  // });
 
   // logout
-  app.get("/admin-logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
+  // app.get("/admin-logout", (req, res) => {
+  //   req.logout();
+  //   res.redirect("/");
+  // });
 
-  // show the login form
-  app.get("/admin-login", (req, res) => {
-    res
-      .set("Cache-Control", "max-age=604800")
-      .status(200)
-      .render("login.pug", {
-        message: req.flash("loginMessage")
-      });
-  });
+  // // show the login form
+  // app.get("/admin-login", (req, res) => {
+  //   res
+  //     .set("Cache-Control", "max-age=604800")
+  //     .status(200)
+  //     .render("login.pug", {
+  //       message: req.flash("loginMessage")
+  //     });
+  // });
 
-  // process the login form
-  app.post(
-    "/admin-login",
-    passport.authenticate("local-login", {
-      successRedirect: "/admin-profile", // redirect to the secure profile section
-      failureRedirect: "/admin-login", // redirect back to the signup page if there is an error
-      failureFlash: true // allow flash messages
-    })
-  );
+  // // process the login form
+  // app.post(
+  //   "/admin-login",
+  //   passport.authenticate("local-login", {
+  //     successRedirect: "/admin-profile", // redirect to the secure profile section
+  //     failureRedirect: "/admin-login", // redirect back to the signup page if there is an error
+  //     failureFlash: true // allow flash messages
+  //   })
+  // );
 
-  // show the signup form
-  app.get("/admin-signup", (req, res) => {
-    res
-      .set("Cache-Control", "max-age=604800")
-      .status(200)
-      .render("signup.pug", {
-        message: req.flash("signupMessage")
-      });
-  });
+  // // show the signup form
+  // app.get("/admin-signup", (req, res) => {
+  //   res
+  //     .set("Cache-Control", "max-age=604800")
+  //     .status(200)
+  //     .render("signup.pug", {
+  //       message: req.flash("signupMessage")
+  //     });
+  // });
 
-  // process the signup form
-  app.post(
-    "/admin-signup",
-    passport.authenticate("local-signup", {
-      successRedirect: "/profile", // redirect to the secure profile section
-      failureRedirect: "/signup", // redirect back to the signup page if there is an error
-      failureFlash: true // allow flash messages
-    })
-  );
+  // // process the signup form
+  // app.post(
+  //   "/admin-signup",
+  //   passport.authenticate("local-signup", {
+  //     successRedirect: "/profile", // redirect to the secure profile section
+  //     failureRedirect: "/signup", // redirect back to the signup page if there is an error
+  //     failureFlash: true // allow flash messages
+  //   })
+  // );
 
   // post contact info to db
   app.post("/api/contact", (req, res) => {

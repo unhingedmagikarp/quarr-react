@@ -12,11 +12,12 @@ class Contact extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  async handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
+    console.log(this.state);
 
     const { name, subject, email, message } = this.state;
-    await axios
+    axios
       .post("/api/contact", {
         name,
         subject,
@@ -24,7 +25,7 @@ class Contact extends Component {
         message
       })
       .then(this.setState({ fireRedirect: true }));
-  }
+  };
 
   render() {
     const { fireRedirect } = this.state;
