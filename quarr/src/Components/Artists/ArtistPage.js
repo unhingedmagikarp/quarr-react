@@ -48,7 +48,7 @@ class ArtistPage extends Component {
                     name={item.name}
                     desc={item.description}
                     picture={item.picture}
-                    artistUrl={item.artistUrl}
+                    slug={item.slug}
                   />
                 );
               })}

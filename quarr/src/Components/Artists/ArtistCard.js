@@ -4,7 +4,7 @@ const ArtistCard = props => {
   return (
     <a
       className="col-sm-6 col-lg-4 fadeCard"
-      href={`artists/${props.artistUrl}`}
+      href={`artists/${props.slug}`}
       style={{ textDecoration: "none", color: "#212529" }}
     >
       <div className="card clean-card text-center artistCard">

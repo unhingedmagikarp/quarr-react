@@ -2,22 +2,18 @@ const mongoose = require("mongoose");
 
 const collectionSchema = mongoose.Schema({
   artist: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "artistModel"
+  },
+  name: {
     type: String,
     required: true
   },
-  artistUrl: {
+  slug: {
     type: String,
     required: true
   },
-  collectionName: {
-    type: String,
-    required: true
-  },
-  collectionUrl: {
-    type: String,
-    required: true
-  },
-  image: {
+  picture: {
     type: String,
     required: true
   },

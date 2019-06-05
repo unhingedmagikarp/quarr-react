@@ -1,71 +1,78 @@
-const Artist = require("../../models/artist");
 const Collection = require("../../models/collection");
+const Artist = require("../../models/artist");
 const slugify = require("../../config/helperMethods").slugify;
 const upload = require("../../config/helperMethods").upload;
 
 module.exports = {
-  getArtists: async (req, res, next) => {
-    const artists = await Artist.find({});
-    res.status(200).json(artists);
+  getCollections: async (req, res, next) => {
+    const collections = await Collection.find({});
+    res.status(200).json(collections);
   },
 
-  getArtist: async (req, res, next) => {
-    const artist = await Artist.findById(req.params.id).populate("collections");
-    console.log(artist.collections);
-    res.status(200).json(artist);
+  getCollection: async (req, res, next) => {
+    const collection = await Collection.find({ _id: req.params.id });
+    res.status(200).json(collection);
   },
 
-  createArtist: async (req, res, next) => {
+  createCollection: async (req, res, next) => {
     upload(req, res, err => {
       if (err) {
         res.sendStatus(500);
       }
-      Artist.create({
+      const newCollection = new Collection({
         name: req.body.name,
         picture: req.files[0].location,
         description: req.body.description,
-        slug: slugify(req.body.name),
-        copyright: true
-      }).then(artist => {
-        res.send(artist);
+        slug: slugify(req.body.name)
+        // categoryType: ''
+      });
+      Artist.findById(req.params.id, (err, artist) => {
+        if (err) {
+          res.send(err);
+        }
+        newCollection.artist = artist;
+        newCollection.save();
+        artist.collections.push(newCollection);
+        artist.save();
+        res.json(newCollection);
       });
     });
   },
 
-  updateArtist: async (req, res, next) => {
+  updateCollection: async (req, res, next) => {
     if (req.files) {
       upload(req, res, err => {
         if (err) {
           res.sendStatus(500);
         }
-        Artist.findOneAndUpdate({
+        Collection.findOneAndUpdate({
           _id: req.params.id,
           name: req.body.name,
           picture: req.files[0].location,
           description: req.body.description,
           slug: slugify(req.body.name),
           copyright: true
-        }).then(artist => res.send(artist));
+        }).then(collection => res.send(collection));
       });
     } else {
       try {
-        Artist.findOneAndUpdate({
+        Collection.findOneAndUpdate({
           _id: req.params.id,
           name: req.body.name,
           picture: req.files[0].location,
           description: req.body.description,
           slug: slugify(req.body.name),
           copyright: true
-        }).then(artist => res.send(artist));
+        }).then(collection => res.send(collection));
       } catch (error) {
         res.sendStatus(500);
       }
     }
   },
 
-  deleteArtist: async (req, res, next) => {
-    Artist.findOneAndDelete({ _id: req.params.id })
-      .then(artist => {
+  deleteCollection: async (req, res, next) => {
+    Collection.findOneAndDelete({ _id: req.params.id })
+      .then(collection => {
         res.sendStatus(200);
       })
       .catch(err => {

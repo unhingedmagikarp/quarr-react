@@ -17,7 +17,6 @@ import SearchPage from "./Components/Search/SearchPage";
 
 class App extends Component {
   render() {
-    console.log(this.props);
     return (
       <BrowserRouter>
         <React.Fragment>
@@ -25,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistSite} exact />
+            <Route path="/artists/:slug" component={LandingPage} />
             <Route path="/blog" component={BlogPage} exact />
             <Route
               path="/contact-us"
