@@ -1,10 +1,5 @@
 module.exports = function(app) {
   // Bodyparser to receive input from html body
-  const bodyParser = require("body-parser");
-  app
-    .use(bodyParser())
-    .use(bodyParser.urlencoded({ extended: true }))
-    .use(bodyParser.json());
 
   // busboy config for image process and shortid for unique name
   const busboyBodyParser = require("busboy-body-parser");

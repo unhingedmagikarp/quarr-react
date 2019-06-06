@@ -1,5 +1,5 @@
 // render every artist from db
-app.get("/api/artists", (req, res) => {
+app.get("/artists", (req, res) => {
   Artist.find({}, (err, artists) => {
     if (err) {
       res.status(404);

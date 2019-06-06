@@ -24,7 +24,12 @@ class App extends Component {
           <Switch>
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistSite} exact />
-            <Route path="/artists/:slug" component={LandingPage} />
+            {/* <Route path="/artists/:slug" component={props => {
+            const id = props.match.params.id
+            const painting = this.state.paintings.find(painting => painting.id === id)
+            if (this.state.paintings.length === 0) return <h1>Loading...</h1>
+            if (this.state.paintings.length > 0 && painting === undefined) return <h1>Painting Not Found</h1>
+            return <PaintingDetails painting={painting} {...props} /> */}
             <Route path="/blog" component={BlogPage} exact />
             <Route
               path="/contact-us"

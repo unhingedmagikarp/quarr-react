@@ -11,6 +11,12 @@ const artistSchema = mongoose.Schema({
       ref: "collectionModel"
     }
   ],
+  artworks: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "artworkModel"
+    }
+  ],
   picture: {
     type: String,
     required: true

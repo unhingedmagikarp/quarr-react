@@ -1,31 +1,27 @@
 const mongoose = require("mongoose");
 
-const sizeSchema = mongoose.Schema({
-  availableSize: [
-    {
-      type: String
-    }
-  ]
-});
+// const sizeSchema = mongoose.Schema({
+//   availableSize: [
+//     {
+//       type: String
+//     }
+//   ]
+// });
 
-const priceSchema = mongoose.Schema({
-  availablePrice: [
-    {
-      type: Number
-    }
-  ]
-});
+// const priceSchema = mongoose.Schema({
+//   availablePrice: [
+//     {
+//       type: Number
+//     }
+//   ]
+// });
 
-const artSchema = mongoose.Schema({
-  artist: {
-    type: String,
-    required: true
-  },
-  artistUrl: {
-    type: String,
-    required: true
-  },
+const artworkSchema = mongoose.Schema({
   name: {
+    type: String,
+    required: true
+  },
+  slug: {
     type: String,
     required: true
   },
@@ -36,8 +32,6 @@ const artSchema = mongoose.Schema({
   description: {
     type: String
   },
-  price: [priceSchema],
-
   forSale: {
     type: Boolean,
     required: true
@@ -46,17 +40,22 @@ const artSchema = mongoose.Schema({
     type: Boolean,
     required: true
   },
-  size: [sizeSchema],
-  collectionName: {
+  size: [],
+  price: [],
+  picture: {
     type: String,
     required: true
   },
-  image: {
-    type: String,
-    required: true
+  collectionName: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "collectionModel"
+  },
+  artist: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "artistModel"
   }
 });
 
-const artModel = mongoose.model("artModel", artSchema);
+const artworkModel = mongoose.model("artworkModel", artworkSchema);
 
-module.exports = artModel;
+module.exports = artworkModel;

@@ -1,5 +1,7 @@
 const AdminArtistController = require("../../controllers/admin/artistController");
 const CollectionController = require("../../controllers/admin/collectionController");
+const ArtworksController = require("../../controllers/admin/artworkController");
+const ContactController = require("../../controllers/client/contactController");
 
 module.exports = function(app) {
   // Artists
@@ -15,4 +17,17 @@ module.exports = function(app) {
   app.post("/api/collections/:id", CollectionController.createCollection);
   app.patch("/api/collections/:id", CollectionController.updateCollection);
   app.delete("/api/collections/:id", CollectionController.deleteCollection);
+
+  // Artworks
+  app.get("/api/artworks", ArtworksController.getArtworks);
+  app.get("/api/artworks/:id", ArtworksController.getArtwork);
+  app.post("/api/artworks", ArtworksController.createArtwork);
+  app.patch("/api/artworks/:id", ArtworksController.updateArtwork);
+  app.delete("/api/artworks/:id", ArtworksController.deleteArtwork);
+
+  // Helpet routes
+  app.get("/api/artworks-slider", ArtworksController.getSliderArtworks);
+
+  // Contact
+  app.post("/api/contact", ContactController.submitContact);
 };

@@ -1,17 +1,18 @@
 const Artist = require("../../models/artist");
-const Collection = require("../../models/collection");
 const slugify = require("../../config/helperMethods").slugify;
 const upload = require("../../config/helperMethods").upload;
 
 module.exports = {
   getArtists: async (req, res, next) => {
     const artists = await Artist.find({});
+    // .populate("collections");
     res.status(200).json(artists);
   },
 
   getArtist: async (req, res, next) => {
-    const artist = await Artist.findById(req.params.id).populate("collections");
-    console.log(artist.collections);
+    const artist = await Artist.findById(req.params.id);
+    // .populate("collections");
+    if (!artist) res.sendStatus(500);
     res.status(200).json(artist);
   },
 
@@ -25,7 +26,7 @@ module.exports = {
         picture: req.files[0].location,
         description: req.body.description,
         slug: slugify(req.body.name),
-        copyright: true
+        copyright: req.body.copyright ? true : false
       }).then(artist => {
         res.send(artist);
       });

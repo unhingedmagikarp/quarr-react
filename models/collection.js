@@ -5,6 +5,12 @@ const collectionSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "artistModel"
   },
+  artworks: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "artworkModel"
+    }
+  ],
   name: {
     type: String,
     required: true

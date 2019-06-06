@@ -18,13 +18,13 @@ class Contact extends Component {
 
     const { name, subject, email, message } = this.state;
     axios
-      .post("/api/contact", {
+      .post("http://localhost:5000/api/contact", {
         name,
         subject,
         email,
         message
       })
-      .then(this.setState({ fireRedirect: true }));
+      .then(res => this.setState({ fireRedirect: true }));
   };
 
   render() {

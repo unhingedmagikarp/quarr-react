@@ -1,5 +1,6 @@
 import React from "react";
 import { UncontrolledCarousel } from "reactstrap";
+import axios from "axios";
 import img1 from "../../Assets/img/scenery/image1.jpg";
 import img2 from "../../Assets/img/scenery/image4.jpg";
 import img3 from "../../Assets/img/scenery/image6.jpg";
@@ -26,15 +27,37 @@ const items = [
 ];
 
 class Carousel extends React.Component {
-  state = {};
+  state = {
+    images: []
+  };
 
   componentDidMount() {
     this.fetchPaintings();
   }
 
+  convertImages = image => {
+    console.log(image);
+    this.setState({
+      images: [
+        ...this.state.images,
+        {
+          src: image.picture,
+          altText: image.description,
+          caption: image.description,
+          header: image.name
+        }
+      ]
+    });
+  };
+
   fetchPaintings = () => {
-    //axios
-    console.log("mock pictures");
+    axios
+      .get("http://localhost:5000/api/artworks-slider")
+      .then(res => {
+        return res.data.map(image => this.convertImages(image));
+        // this.setState({ images: res.data });
+      })
+      .catch(err => console.log(err));
   };
 
   render() {
