@@ -14,6 +14,7 @@ import Privacy from "./Components/Privacy/Privacy";
 import AdminLogin from "./Components/Admin/AdminLogin/Login";
 import ArtistSite from "./Components/Artists/ArtistSite";
 import SearchPage from "./Components/Search/SearchPage";
+import SingleArtistSite from "./Components/SingleArtist/SingleArtistSite";
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
           <Switch>
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistSite} exact />
+            <Route path="/artists/:slug" component={SingleArtistSite} />
             {/* <Route path="/artists/:slug" component={props => {
             const id = props.match.params.id
             const painting = this.state.paintings.find(painting => painting.id === id)

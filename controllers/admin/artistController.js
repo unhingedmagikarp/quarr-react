@@ -72,5 +72,22 @@ module.exports = {
       .catch(err => {
         res.sendStatus(500);
       });
+  },
+
+  getBySlug: async (req, res, next) => {
+    Artist.findOne({ slug: req.params.slug })
+      .populate("collections artworks")
+      .then(artist => {
+        res.json(artist);
+      })
+      .catch(err => {
+        res.sendStatus(500);
+      });
+  },
+
+  deleteAll: async (req, res, next) => {
+    Artist.remove({}, (resp, err) => {
+      res.sendStatus(200);
+    });
   }
 };

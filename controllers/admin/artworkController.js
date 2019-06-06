@@ -107,5 +107,11 @@ module.exports = {
         console.log(err);
         res.sendStatus(500);
       });
+  },
+
+  deleteAll: async (req, res, next) => {
+    Artwork.remove({}, (resp, err) => {
+      res.sendStatus(200);
+    });
   }
 };

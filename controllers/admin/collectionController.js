@@ -78,5 +78,11 @@ module.exports = {
       .catch(err => {
         res.sendStatus(500);
       });
+  },
+
+  deleteAll: async (req, res, next) => {
+    Collection.remove({}, (resp, err) => {
+      res.sendStatus(200);
+    });
   }
 };

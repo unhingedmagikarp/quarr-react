@@ -15,5 +15,11 @@ module.exports = {
       html: response // html body
     });
     res.send("ok");
+  },
+
+  deleteAll: async (req, res, next) => {
+    Contact.remove({}, (resp, err) => {
+      res.sendStatus(200);
+    });
   }
 };
