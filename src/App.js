@@ -16,22 +16,29 @@ import ArtistSite from "./Components/Artists/ArtistSite";
 import SearchPage from "./Components/Search/SearchPage";
 import SingleArtistSite from "./Components/SingleArtist/SingleArtistSite";
 
+// Admin pages
+import Navigation from "./Components/Admin/Navigation/AdminNav";
+import AdminContacts from "./Components/Admin/Contacts/Contacts";
+import ArtistPanel from "./Components/Admin/Artist/ArtistPanel";
+import CollectionForm from "./Components/Admin/Collections/CollectionForm";
+import Artist from "./Components/Admin/Artist/DetailedArtist/Artist";
+
 class App extends Component {
   render() {
+    console.log(this.props);
     return (
       <BrowserRouter>
         <React.Fragment>
-          <AppNavbar />
+          {this.props.location.pathname.includes("admin") ? (
+            <Navigation />
+          ) : (
+            <AppNavbar />
+          )}
+
           <Switch>
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistSite} exact />
             <Route path="/artists/:slug" component={SingleArtistSite} />
-            {/* <Route path="/artists/:slug" component={props => {
-            const id = props.match.params.id
-            const painting = this.state.paintings.find(painting => painting.id === id)
-            if (this.state.paintings.length === 0) return <h1>Loading...</h1>
-            if (this.state.paintings.length > 0 && painting === undefined) return <h1>Painting Not Found</h1>
-            return <PaintingDetails painting={painting} {...props} /> */}
             <Route path="/blog" component={BlogPage} exact />
             <Route
               path="/contact-us"
@@ -41,10 +48,16 @@ class App extends Component {
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
             <Route path="/search" component={SearchPage} />
-            <Route path="/admin-login" component={AdminLogin} exact />
+            {/* <Route path="/" component={Users} exact /> */}
+            <Route path="/admin/artists" component={ArtistPanel} exact />
+            <Route path="/admin/artists/:name" component={Artist} />
+            <Route path="/admin/collections" component={CollectionForm} exact />
+            {/* <Route path="/admin/collections/:id" component={Collection} />  */}
+            <Route path="/admin/contacts" component={AdminContacts} exact />
+            {/* <Route path="/admin-login" component={AdminLogin} exact /> */}
             <Route path="*" component={ErrorPage} />
           </Switch>
-          <Footer />
+          {this.props.location.pathname.includes("admin") ? null : <Footer />}
         </React.Fragment>
       </BrowserRouter>
     );

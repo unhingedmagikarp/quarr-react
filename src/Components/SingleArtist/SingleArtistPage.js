@@ -9,17 +9,6 @@ class SingleArtistPage extends Component {
     // artists: null
   };
 
-  //   componentDidMount() {
-  //     axios
-  //       .get("http://localhost:5000/api/artists")
-  //       .then(response => {
-  //         this.setState({ artists: response.data });
-  //       })
-  //       .catch(error => {
-  //         console.log(error);
-  //       });
-  //   }
-
   render() {
     console.log(this.props.artist);
     return (
@@ -32,10 +21,7 @@ class SingleArtistPage extends Component {
             <div className="container">
               <div className="block-heading" style={{ marginTop: "80px" }}>
                 <h2 className="text-info">{this.props.artist.name}</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                  quam urna, dignissim nec auctor in, mattis vitae leo.
-                </p>
+                <p>{this.props.artist.description}</p>
               </div>
               <div className="row justify-content-center">
                 {this.props.artist.collections.map(item => {

@@ -36,7 +36,6 @@ class Carousel extends React.Component {
   }
 
   convertImages = image => {
-    console.log(image);
     this.setState({
       images: [
         ...this.state.images,
@@ -63,7 +62,7 @@ class Carousel extends React.Component {
   render() {
     return (
       <div>
-        {this.state.images ? (
+        {this.state.images.length > 0 ? (
           <UncontrolledCarousel items={this.state.images} />
         ) : (
           <UncontrolledCarousel items={items} />
