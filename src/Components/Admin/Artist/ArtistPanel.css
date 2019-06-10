@@ -1,0 +1,14 @@
+.fontColor {
+  color: black;
+  text-decoration: none;
+}
+
+.fontColor :link {
+  text-decoration: none;
+  color: black;
+}
+
+.fontColor :visited {
+  text-decoration: none;
+  color: black;
+}
