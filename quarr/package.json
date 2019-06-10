@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-contenteditable": "^3.1.1",
     "react-dom": "^16.8.6",
@@ -11,6 +12,7 @@
     "react-meta-tags": "^0.7.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "^3.0.1",
+    "react-switch": "^5.0.0",
     "reactstrap": "^6.5.0"
   },
   "scripts": {

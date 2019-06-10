@@ -5,12 +5,14 @@ const upload = require("../../config/helperMethods").upload;
 
 module.exports = {
   getCollections: async (req, res, next) => {
-    const collections = await Collection.find({});
+    const collections = await Collection.find({}).populate("artist artworks");
     res.status(200).json(collections);
   },
 
   getCollection: async (req, res, next) => {
-    const collection = await Collection.find({ _id: req.params.id });
+    const collection = await Collection.find({ _id: req.params.id }).populate(
+      "artist artworks"
+    );
     res.status(200).json(collection);
   },
 
@@ -32,7 +34,7 @@ module.exports = {
         }
         newCollection.artist = artist;
         newCollection.save();
-        artist.collections.push(newCollection);
+        artist.collections.unshift(newCollection);
         artist.save();
         res.json(newCollection);
       });

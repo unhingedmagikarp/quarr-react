@@ -78,6 +78,8 @@ module.exports = {
     Artist.findOne({ slug: req.params.slug })
       .populate("collections artworks")
       .then(artist => {
+        console.log(artist);
+
         res.json(artist);
       })
       .catch(err => {
@@ -89,5 +91,13 @@ module.exports = {
     Artist.remove({}, (resp, err) => {
       res.sendStatus(200);
     });
+  },
+
+  getArtistCollections: async (req, res, next) => {
+    Artist.findById(req.params.id)
+      .then(artist => {
+        res.json(artist.collections);
+      })
+      .catch(err => console.log(err));
   }
 };

@@ -10,7 +10,7 @@ module.exports = {
     name
       .toLowerCase()
       .split(" ")
-      .join(""),
+      .join("-"),
 
   upload: multer({
     storage: multerS3({

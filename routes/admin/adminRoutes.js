@@ -2,6 +2,7 @@ const AdminArtistController = require("../../controllers/admin/artistController"
 const CollectionController = require("../../controllers/admin/collectionController");
 const ArtworksController = require("../../controllers/admin/artworkController");
 const ContactController = require("../../controllers/client/contactController");
+const AdminContactController = require("../../controllers/admin/contactController");
 
 module.exports = function(app) {
   // Artists
@@ -32,6 +33,8 @@ module.exports = function(app) {
 
   // Contact
   app.post("/api/contact", ContactController.submitContact);
+  app.get("/api/admin/contacts", AdminContactController.getContacts);
+  app.delete("/api/admin/contacts/:id", AdminContactController.deleteContact);
 
   // BULK DELETE
   app.delete("/api/delete-artists", AdminArtistController.deleteAll);

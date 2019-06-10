@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { NavbarToggler, Collapse, Nav, NavItem, NavLink } from "reactstrap";
+import {
+  NavbarToggler,
+  Collapse,
+  Nav,
+  NavItem,
+  NavLink,
+  Container
+} from "reactstrap";
 import "./Navigation.css";
 import SearchButton from "./SearchButton";
 import { Link } from "react-router-dom";
@@ -18,7 +25,7 @@ class AppNavbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar smallNav">
-        <div className="container">
+        <Container>
           <a className="navbar-brand logo" href="/">
             Quarr Gallery
           </a>
@@ -50,7 +57,7 @@ class AppNavbar extends Component {
               </NavItem>
             </Nav>
           </Collapse>
-        </div>
+        </Container>
       </nav>
     );
   }
