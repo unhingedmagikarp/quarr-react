@@ -35,7 +35,8 @@ class App extends Component {
             <Route path="/blog" component={BlogPage} exact />
             <Route
               path="/contact-us"
-              component={props => <ContactPage {...this.props} />}
+              component={ContactPage}
+              // component={props => <ContactPage {...this.props} />}
               exact
             />
             <Route path="/success" component={SuccessPage} exact />

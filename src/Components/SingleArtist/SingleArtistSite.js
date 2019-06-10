@@ -22,7 +22,7 @@ class SingleArtistSite extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <div style={{ minHeight: "45rem" }}>
         <MetaTags>
           <title>
             {this.state.artist ? this.state.artist.name : "Artist"} - Quarr
@@ -60,7 +60,7 @@ class SingleArtistSite extends React.Component {
           <meta property="og:url" content={window.location.href} />
         </MetaTags>
         {this.state.artist && <SingleArtistPage artist={this.state.artist} />}
-      </Fragment>
+      </div>
     );
   }
 }
