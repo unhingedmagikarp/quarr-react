@@ -16,7 +16,7 @@ class SingleArtistPage extends Component {
         {this.props.artist ? (
           <section
             className="clean-block about-us"
-            style={{ backgroundColor: "#F6F6F6", minHeight: "500px" }}
+            style={{ backgroundColor: "#F6F6F6", minHeight: "45rem" }}
           >
             <div className="container">
               <div className="block-heading" style={{ marginTop: "80px" }}>
@@ -31,7 +31,7 @@ class SingleArtistPage extends Component {
             </div>
           </section>
         ) : (
-          <div style={{ minHeight: "1000px", backgroundColor: "#F6F6F6" }} />
+          <div style={{ minHeight: "45rem", backgroundColor: "#F6F6F6" }} />
         )}
       </React.Fragment>
     );

@@ -1,8 +1,9 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="page-footer dark">
+    <footer className="page-footer dark ">
       <div className="container">
         <div className="row">
           <div className="col-sm-3">

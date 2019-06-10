@@ -10,6 +10,7 @@ import {
 import "./Navigation.css";
 import SearchButton from "./SearchButton";
 import { Link } from "react-router-dom";
+import Basket from "./Basket";
 
 class AppNavbar extends Component {
   state = {
@@ -56,6 +57,7 @@ class AppNavbar extends Component {
                 </NavLink>
               </NavItem>
             </Nav>
+            <Basket />
           </Collapse>
         </Container>
       </nav>

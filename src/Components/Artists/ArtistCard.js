@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ArtistCard = props => {
   return (
-    <a
+    <Link
       className="col-sm-6 col-lg-4 fadeCard"
-      href={`artists/${props.artist.slug}`}
+      to={`artists/${props.artist.slug}`}
       style={{ textDecoration: "none", color: "#212529" }}
     >
       <div className="card clean-card text-center artistCard">
@@ -22,7 +23,7 @@ const ArtistCard = props => {
           <p className="card-text">{props.artist.desc}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
