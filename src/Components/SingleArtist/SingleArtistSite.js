@@ -1,6 +1,6 @@
 import MetaTags from "react-meta-tags";
 import MetaImage from "../../Assets/img/ls.jpg";
-import React, { Fragment } from "react";
+import React from "react";
 import SingleArtistPage from "./SingleArtistPage";
 import axios from "axios";
 

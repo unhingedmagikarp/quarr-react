@@ -6,6 +6,8 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import Ionicon from "react-ionicons";
+// IosBasketOutline
 
 class Basket extends React.Component {
   state = {
@@ -21,7 +23,14 @@ class Basket extends React.Component {
   render() {
     return (
       <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>Dropdown</DropdownToggle>
+        <DropdownToggle>
+          <Ionicon
+            icon="ios-basket-outline"
+            className="icon"
+            color="#fff"
+            style={{ marginTop: "5px" }}
+          />
+        </DropdownToggle>
         <DropdownMenu>
           <DropdownItem header>Header</DropdownItem>
           <DropdownItem>Some Action</DropdownItem>

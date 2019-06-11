@@ -1,0 +1,23 @@
+.waterMark {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: black;
+  opacity: 0.5;
+}
+
+.artistCard {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.fadeCard {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.fadeCard:hover {
+  opacity: 0.5;
+  transition: 0.3s;
+}

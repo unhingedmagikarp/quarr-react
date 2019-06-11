@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 import TableView from "./TableView";
 import "./ArtistPanel.css";
 import ArtistModal from "./ArtistModal";

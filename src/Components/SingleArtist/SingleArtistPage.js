@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
 import CollectionCard from "./CollectionCard";
 // import ArtistCard from "./ArtistCard";
 // import "./Artists.css";
@@ -10,7 +10,6 @@ class SingleArtistPage extends Component {
   };
 
   render() {
-    console.log(this.props.artist);
     return (
       <React.Fragment>
         {this.props.artist ? (
@@ -25,7 +24,13 @@ class SingleArtistPage extends Component {
               </div>
               <div className="row justify-content-center">
                 {this.props.artist.collections.map(item => {
-                  return <CollectionCard key={item._id} collection={item} />;
+                  return (
+                    <CollectionCard
+                      key={item._id}
+                      artist={this.props.artist.slug}
+                      collection={item}
+                    />
+                  );
                 })}
               </div>
             </div>

@@ -11,10 +11,11 @@ import ContactPage from "./Components/ContactPage/ContactPage";
 import SuccessPage from "./Components/SuccessPage/SuccessPage";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import Privacy from "./Components/Privacy/Privacy";
-import AdminLogin from "./Components/Admin/AdminLogin/Login";
 import ArtistSite from "./Components/Artists/ArtistSite";
 import SearchPage from "./Components/Search/SearchPage";
 import SingleArtistSite from "./Components/SingleArtist/SingleArtistSite";
+import CollectionsWrapper from "./Components/Collections/CollectionsWrapper";
+import Product from "./Components/Product/Product";
 
 // Admin pages
 import Navigation from "./Components/Admin/Navigation/AdminNav";
@@ -25,7 +26,6 @@ import Artist from "./Components/Admin/Artist/DetailedArtist/Artist";
 
 class App extends Component {
   render() {
-    console.log(this.props);
     return (
       <BrowserRouter>
         <React.Fragment>
@@ -34,18 +34,17 @@ class App extends Component {
           ) : (
             <AppNavbar />
           )}
-
           <Switch>
             <Route path="/" component={LandingPage} exact />
             <Route path="/artists" component={ArtistSite} exact />
-            <Route path="/artists/:slug" component={SingleArtistSite} />
-            <Route path="/blog" component={BlogPage} exact />
+            <Route path="/artists/:slug/" component={SingleArtistSite} exact />
             <Route
-              path="/contact-us"
-              component={ContactPage}
-              // component={props => <ContactPage {...this.props} />}
-              exact
+              path="/artists/:slug/:collection"
+              component={CollectionsWrapper}
             />
+            <Route path="/product/:slug" component={Product} exact />
+            <Route path="/blog" component={BlogPage} exact />
+            <Route path="/contact-us" component={ContactPage} exact />
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
             <Route path="/search" component={SearchPage} />
