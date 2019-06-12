@@ -25,8 +25,24 @@ class Product extends React.Component {
       });
   };
 
+  addToBasket = () => {
+    localStorage.getItem("testObject")
+      ? localStorage.setItem(
+          "testObject",
+          JSON.stringify([
+            ...JSON.parse(localStorage.getItem("testObject")),
+            this.state.selected
+          ])
+        )
+      : localStorage.setItem(
+          "testObject",
+          `[${JSON.stringify(this.state.selected)}]`
+        );
+    this.props.getBasketContent();
+  };
+
   render() {
-    console.log(this.state);
+    console.log(this.props);
     return (
       <React.Fragment>
         {this.state.selected ? (
@@ -56,7 +72,11 @@ class Product extends React.Component {
                           <div className="price">
                             <h3>£{this.state.selected.price[0]}</h3>
                           </div>
-                          <button className="btn btn-primary" type="button">
+                          <button
+                            className="btn btn-primary"
+                            type="button"
+                            onClick={this.addToBasket}
+                          >
                             <i className="icon-basket" />
                             Add to Cart
                           </button>
@@ -72,7 +92,7 @@ class Product extends React.Component {
                     <h3>Related Products</h3>
                     <div className="items">
                       <div className="row justify-content-center">
-                        {this.state.artworks.map(item => {
+                        {this.state.artworks.reverse().map(item => {
                           return (
                             <RelevantProduct key={item._id} product={item} />
                           );

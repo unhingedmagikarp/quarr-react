@@ -16,6 +16,7 @@ import SearchPage from "./Components/Search/SearchPage";
 import SingleArtistSite from "./Components/SingleArtist/SingleArtistSite";
 import CollectionsWrapper from "./Components/Collections/CollectionsWrapper";
 import Product from "./Components/Product/Product";
+import Cart from "./Components/Checkout/Cart";
 
 // Admin pages
 import Navigation from "./Components/Admin/Navigation/AdminNav";
@@ -25,6 +26,20 @@ import CollectionForm from "./Components/Admin/Collections/CollectionForm";
 import Artist from "./Components/Admin/Artist/DetailedArtist/Artist";
 
 class App extends Component {
+  state = {
+    basket: null
+  };
+
+  componentDidMount() {
+    this.getBasketContent();
+  }
+
+  getBasketContent = () => {
+    this.setState({
+      basket: JSON.parse(localStorage.getItem("testObject"))
+    });
+  };
+
   render() {
     return (
       <BrowserRouter>
@@ -32,7 +47,10 @@ class App extends Component {
           {this.props.location.pathname.includes("admin") ? (
             <Navigation />
           ) : (
-            <AppNavbar />
+            <AppNavbar
+              getBasketContent={this.getBasketContent}
+              basketContent={this.state.basket ? this.state.basket : null}
+            />
           )}
           <Switch>
             <Route path="/" component={LandingPage} exact />
@@ -42,12 +60,20 @@ class App extends Component {
               path="/artists/:slug/:collection"
               component={CollectionsWrapper}
             />
-            <Route path="/product/:slug" component={Product} exact />
+            <Route
+              path="/product/:slug"
+              render={props => (
+                <Product {...props} getBasketContent={this.getBasketContent} />
+              )}
+              exact
+            />
             <Route path="/blog" component={BlogPage} exact />
             <Route path="/contact-us" component={ContactPage} exact />
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
             <Route path="/search" component={SearchPage} />
+            <Route path="/cart" component={Cart} />
+
             {/* <Route path="/" component={Users} exact /> */}
             <Route path="/admin/artists" component={ArtistPanel} exact />
             <Route path="/admin/artists/:name" component={Artist} />

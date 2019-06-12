@@ -23,6 +23,10 @@ class AppNavbar extends Component {
     });
   };
 
+  componentDidMount() {
+    this.props.getBasketContent();
+  }
+
   render() {
     return (
       <nav className="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar smallNav">
@@ -57,7 +61,10 @@ class AppNavbar extends Component {
                 </NavLink>
               </NavItem>
             </Nav>
-            <Basket />
+            <Basket
+              getBasketContent={this.props.getBasketContent}
+              basketContent={this.props.basketContent}
+            />
           </Collapse>
         </Container>
       </nav>

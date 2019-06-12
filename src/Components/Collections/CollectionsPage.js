@@ -24,7 +24,6 @@ class CollectionsPage extends Component {
   }
 
   render() {
-    console.log(this.state.collection);
     return (
       <React.Fragment>
         {this.state.collection ? (
@@ -38,13 +37,9 @@ class CollectionsPage extends Component {
                 <p>{this.state.collection.description}</p>
               </div>
               <div className="row justify-content-center">
-                {this.state.collection.artworks.map(
-                  item => {
-                    return <ArtworkCard artwork={item} key={item._id} />;
-                  }
-
-                  //   return <ArtistCard key={item._id} artist={item} />;
-                )}
+                {this.state.collection.artworks.reverse().map(item => {
+                  return <ArtworkCard artwork={item} key={item._id} />;
+                })}
               </div>
             </div>
           </section>

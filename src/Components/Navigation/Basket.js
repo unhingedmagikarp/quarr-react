@@ -7,7 +7,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import Ionicon from "react-ionicons";
-// IosBasketOutline
+import { Link } from "react-router-dom";
 
 class Basket extends React.Component {
   state = {
@@ -21,114 +21,52 @@ class Basket extends React.Component {
   };
 
   render() {
+    const { basketContent } = this.props;
     return (
       <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle>
+        <DropdownToggle style={{ marginTop: "5px" }}>
           <Ionicon
             icon="ios-basket-outline"
             className="icon"
             color="#fff"
-            style={{ marginTop: "5px" }}
+            style={{ marginRight: "3px" }}
           />
+          {basketContent ? basketContent.length : null}
         </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>Header</DropdownItem>
-          <DropdownItem>Some Action</DropdownItem>
-          <DropdownItem>Foo Action</DropdownItem>
-          <DropdownItem>Bar Action</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Show all</DropdownItem>
-        </DropdownMenu>
+        {this.props.basketContent && (
+          <DropdownMenu>
+            <DropdownItem header>In basket</DropdownItem>
+            {basketContent.length >= 3
+              ? basketContent.slice(0, 3).map((item, index) => {
+                  return (
+                    <DropdownItem
+                      key={`${item._id}-${index}`}
+                      className="media"
+                      style={{ paddingLeft: "5px", paddingRight: "5px" }}
+                    >
+                      <div className="col-3 media-left">
+                        <img
+                          src={item.picture}
+                          style={{ height: "30px", width: "30px" }}
+                        />
+                      </div>
+                      <div className="col-9 media-right">
+                        <p>{item.name}</p>
+                      </div>
+                    </DropdownItem>
+                  );
+                })
+              : null}
+
+            <DropdownItem divider />
+            <DropdownItem>
+              <Link to="/cart">View all {basketContent.length} items</Link>
+            </DropdownItem>
+          </DropdownMenu>
+        )}
       </Dropdown>
     );
   }
 }
 
 export default Basket;
-
-//   <ul className="nav navbar-nav navbar-right">
-//     <li className="dropdown">
-//       <a
-//         href="#"
-//         className="dropdown-toggle"
-//         data-toggle="dropdown"
-//         role="button"
-//         aria-expanded="false"
-//       >
-//         <span className="glyphicon glyphicon-shopping-cart" /> 7 - Items
-//         <span className="caret" />
-//       </a>
-//       <ul className="dropdown-menu dropdown-cart" role="menu">
-//         <li>
-//           <span className="item">
-//             <span className="item-left">
-//               <img src="http://lorempixel.com/50/50/" alt="" />
-//               <span className="item-info">
-//                 <span>Item name</span>
-//                 <span>23$</span>
-//               </span>
-//             </span>
-//             <span className="item-right">
-//               <button className="btn btn-xs btn-danger pull-right">
-//                 x
-//               </button>
-//             </span>
-//           </span>
-//         </li>
-//         <li>
-//           <span className="item">
-//             <span className="item-left">
-//               <img src="http://lorempixel.com/50/50/" alt="" />
-//               <span className="item-info">
-//                 <span>Item name</span>
-//                 <span>23$</span>
-//               </span>
-//             </span>
-//             <span className="item-right">
-//               <button className="btn btn-xs btn-danger pull-right">
-//                 x
-//               </button>
-//             </span>
-//           </span>
-//         </li>
-//         <li>
-//           <span className="item">
-//             <span className="item-left">
-//               <img src="http://lorempixel.com/50/50/" alt="" />
-//               <span className="item-info">
-//                 <span>Item name</span>
-//                 <span>23$</span>
-//               </span>
-//             </span>
-//             <span className="item-right">
-//               <button className="btn btn-xs btn-danger pull-right">
-//                 x
-//               </button>
-//             </span>
-//           </span>
-//         </li>
-//         <li>
-//           <span className="item">
-//             <span className="item-left">
-//               <img src="http://lorempixel.com/50/50/" alt="" />
-//               <span className="item-info">
-//                 <span>Item name</span>
-//                 <span>23$</span>
-//               </span>
-//             </span>
-//             <span className="item-right">
-//               <button className="btn btn-xs btn-danger pull-right">
-//                 x
-//               </button>
-//             </span>
-//           </span>
-//         </li>
-//         <li className="divider" />
-//         <li>
-//           <a className="text-center" href="">
-//             View Cart
-//           </a>
-//         </li>
-//       </ul>
-//     </li>
-//   </ul>
