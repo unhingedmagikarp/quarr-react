@@ -7,23 +7,23 @@ import "./ArtistPanel.css";
 
 class TableView extends Component {
   state = {
-    artists: null
+    artists: this.props.artists
   };
 
-  componentDidMount() {
-    this.getArtists();
-  }
+  // componentDidMount() {
+  //   this.getArtists();
+  // }
 
-  getArtists = () => {
-    axios
-      .get("http://localhost:5000/api/artists")
-      .then(response => {
-        this.setState({ artists: response.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  // getArtists = () => {
+  //   axios
+  //     .get("http://localhost:5000/api/artists")
+  //     .then(response => {
+  //       this.setState({ artists: response.data });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
 
   deleteArtist = e => {
     // const artists = [...this.state.artists];
@@ -32,7 +32,7 @@ class TableView extends Component {
     axios
       .delete(`/api/delete-artist/${e.target.value}`)
       .then(response => {
-        console.log(response);
+        console.log("deleted");
       })
       .catch(err => {
         console.log(err);

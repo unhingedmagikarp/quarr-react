@@ -16,7 +16,13 @@ class Cart extends Component {
   }
 
   getSummary = () => {
-    console.log(this.state.basket);
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    this.setState({
+      finalPrice: this.state.basket
+        .map(item => parseInt(item.price[0]))
+        .reduce(reducer)
+    });
   };
 
   render() {
@@ -35,7 +41,7 @@ class Cart extends Component {
                     <div className="items">
                       {this.state.basket.map((item, index) => {
                         return (
-                          <div className="product">
+                          <div className="product" key={`${item.id}-${index}`}>
                             <div className="row justify-content-center align-items-center">
                               <div className="col-md-3">
                                 <div className="product-image">
@@ -79,12 +85,13 @@ class Cart extends Component {
                                 >
                                   Quantity
                                 </label>
-                                <input
+                                1
+                                {/* <input
                                   type="number"
                                   id="number"
                                   className="form-control quantity-input"
                                   value="1"
-                                />
+                                /> */}
                               </div>
                               <div className="col-6 col-md-2 price">
                                 <span>£{item.price[0]}</span>
@@ -100,19 +107,23 @@ class Cart extends Component {
                       <h3>Summary</h3>
                       <h4>
                         <span className="text">Subtotal</span>
-                        <span className="price">$360</span>
+                        <span className="price">
+                          £{`${this.state.finalPrice}`}
+                        </span>
                       </h4>
                       <h4>
                         <span className="text">Discount</span>
-                        <span className="price">$0</span>
+                        <span className="price">£0</span>
                       </h4>
                       <h4>
                         <span className="text">Shipping</span>
-                        <span className="price">$0</span>
+                        <span className="price">£0</span>
                       </h4>
                       <h4>
                         <span className="text">Total</span>
-                        <span className="price">$360</span>
+                        <span className="price">
+                          £{`${this.state.finalPrice}`}
+                        </span>
                       </h4>
                       <button
                         className="btn btn-primary btn-block btn-lg"

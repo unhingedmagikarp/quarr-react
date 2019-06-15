@@ -14,46 +14,33 @@ import Switch from "react-switch";
 import axios from "axios";
 
 class ArtistModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-      nestedModal: false,
-      closeAll: false,
-      checked: true,
-      uploaded: false
-    };
+  state = {
+    modal: false,
+    nestedModal: false,
+    closeAll: false,
+    checked: true,
+    uploaded: false
+  };
 
-    this.toggle = this.toggle.bind(this);
-    this.toggleNested = this.toggleNested.bind(this);
-    this.toggleAll = this.toggleAll.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFormChange = this.handleFormChange.bind(this);
-  }
-
-  async handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
     data.append("copyright", this.state.checked);
     data.append("description", this.state.description);
     data.append("name", this.state.name);
-    data.append("image", this.state.image);
+    data.append("file", this.state.image);
 
     axios
-      .post("http://localhost:5000/api/new-artist", data, {
+      .post("http://localhost:5000/api/artists", data, {
         headers: { "Content-Type": "multipart/form-data" }
       })
       .then(response => {
-        setTimeout(() => {
-          this.props.handler();
-          this.emptyState();
-          this.props.handler();
-        }, 500);
+        this.props.getArtists();
       })
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   emptyState = () => {
     this.setState({
@@ -63,25 +50,25 @@ class ArtistModal extends React.Component {
     });
   };
 
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
-  }
+  };
 
-  toggleNested() {
+  toggleNested = () => {
     this.setState({
       nestedModal: !this.state.nestedModal,
       closeAll: false
     });
-  }
+  };
 
-  toggleAll() {
+  toggleAll = () => {
     this.setState({
       nestedModal: !this.state.nestedModal,
       closeAll: true
     });
-  }
+  };
 
   fileHandler = e => {
     this.setState({ image: e.target.files[0] });

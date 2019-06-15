@@ -54,7 +54,6 @@ class Carousel extends React.Component {
       .get("http://localhost:5000/api/artworks-slider")
       .then(res => {
         return res.data.map(image => this.convertImages(image));
-        // this.setState({ images: res.data });
       })
       .catch(err => console.log(err));
   };
