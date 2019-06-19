@@ -16,8 +16,8 @@ const CollectionCard = props => {
           style={{ pointerEvents: "none" }}
         />
         <div className="card-body info">
-          <h4 className="card-title">asd</h4>
-          <p className="card-text">afadf</p>
+          <h4 className="card-title">{props.collection.name}</h4>
+          <p className="card-text">{props.collection.description}</p>
         </div>
       </div>
     </Link>

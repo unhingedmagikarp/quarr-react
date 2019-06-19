@@ -3,6 +3,7 @@ import { Table, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import Ionicon from "react-ionicons";
 import "./ArtistPanel.css";
+import EditArtist from "./EditArtist";
 
 class TableView extends Component {
   render() {
@@ -57,19 +58,10 @@ class TableView extends Component {
                       >
                         Delete
                       </Button>
-
-                      <Button
-                        style={{
-                          marginLeft: "10px",
-                          width: "70px",
-                          marginBottom: "5px"
-                        }}
-                        color="success"
-                        value={item._id}
-                        name={index}
-                      >
-                        Edit
-                      </Button>
+                      <EditArtist
+                        artist={item}
+                        getArtists={this.props.getArtists}
+                      />
                     </th>
                   </tr>
                 );

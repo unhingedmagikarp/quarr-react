@@ -51,6 +51,7 @@ class ArtistPanel extends Component {
             artists={this.state.artists}
             deleteArtist={this.deleteArtist}
             displayCopy={this.displayCopy}
+            getArtists={this.getArtists}
           />
         )}
       </div>
