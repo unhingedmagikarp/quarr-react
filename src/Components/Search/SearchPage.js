@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import TestImage from "../../Assets/img/tech/image2.jpg";
+import axios from "axios";
+import SearchItem from "./SearchItem";
 
 class SearchPage extends Component {
   state = {};
 
+  componentDidMount() {
+    axios
+      .get(`http://localhost:5000/api/search/${this.props.match.params.term}`)
+      .then(res => this.setState({ results: { ...res.data } }))
+      .catch(err => console.log(err));
+  }
+
   render() {
+    console.log(this.state);
     return (
       <section className="clean-block clean-catalog dark">
         <div className="container">
@@ -15,9 +25,9 @@ class SearchPage extends Component {
               urna, dignissim nec auctor in, mattis vitae leo.
             </p>
           </div>
-          <div className="content">
+          <div className="content container">
             <div className="row">
-              <div className="col-md-3">
+              {/* <div className="col-md-3">
                 <div className="d-none d-md-block">
                   <div className="filters">
                     <div className="filter-item">
@@ -148,208 +158,38 @@ class SearchPage extends Component {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-9">
+              </div> */}
+              <div className="col-md-12">
                 <div className="products">
+                  <h3 className="text-center">Artists</h3>
                   <div className="row no-gutters">
-                    <div className="col-12 col-md-6 col-lg-4">
-                      <div className="clean-product-item">
-                        <div className="image">
-                          <a href="/">
-                            <img
-                              className="img-fluid d-block mx-auto"
-                              src={TestImage}
-                              alt="Test"
-                            />
-                          </a>
-                        </div>
-                        <div className="product-name">
-                          <a href="/">Product name</a>
-                        </div>
-                        <div className="about">
-                          <div className="price">
-                            <h3>£100</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                      <div className="clean-product-item">
-                        <div className="image">
-                          <a href="/">
-                            <img
-                              className="img-fluid d-block mx-auto"
-                              src={TestImage}
-                              alt="Test"
-                            />
-                          </a>
-                        </div>
-                        <div className="product-name">
-                          <a href="/">Product name</a>
-                        </div>
-                        <div className="about">
-                          <div className="price">
-                            <h3>£100</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                      <div className="clean-product-item">
-                        <div className="image">
-                          <a href="/">
-                            <img
-                              className="img-fluid d-block mx-auto"
-                              src={TestImage}
-                              alt="Test"
-                            />
-                          </a>
-                        </div>
-                        <div className="product-name">
-                          <a href="/">Product name</a>
-                        </div>
-                        <div className="about">
-                          <div className="price">
-                            <h3>£100</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                      <div className="clean-product-item">
-                        <div className="image">
-                          <a href="/">
-                            <img
-                              className="img-fluid d-block mx-auto"
-                              src={TestImage}
-                              alt="Test"
-                            />
-                          </a>
-                        </div>
-                        <div className="product-name">
-                          <a href="/">Product name</a>
-                        </div>
-                        <div className="about">
-                          <div className="price">
-                            <h3>£100</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                      <div className="clean-product-item">
-                        <div className="image">
-                          <a href="/">
-                            <img
-                              className="img-fluid d-block mx-auto"
-                              src={TestImage}
-                              alt="Test"
-                            />
-                          </a>
-                        </div>
-                        <div className="product-name">
-                          <a href="/">Product name</a>
-                        </div>
-                        <div className="about">
-                          <div className="price">
-                            <h3>£100</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                      <div className="clean-product-item">
-                        <div className="image">
-                          <a href="/">
-                            <img
-                              className="img-fluid d-block mx-auto"
-                              src={TestImage}
-                              alt="Test"
-                            />
-                          </a>
-                        </div>
-                        <div className="product-name">
-                          <a href="/">Product name</a>
-                        </div>
-                        <div className="about">
-                          <div className="price">
-                            <h3>£100</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                      <div className="clean-product-item">
-                        <div className="image">
-                          <a href="/">
-                            <img
-                              className="img-fluid d-block mx-auto"
-                              src={TestImage}
-                              alt="Test"
-                            />
-                          </a>
-                        </div>
-                        <div className="product-name">
-                          <a href="/">Product name</a>
-                        </div>
-                        <div className="about">
-                          <div className="price">
-                            <h3>£100</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-12 col-md-6 col-lg-4">
-                      <div className="clean-product-item">
-                        <div className="image">
-                          <a href="/">
-                            <img
-                              className="img-fluid d-block mx-auto"
-                              src={TestImage}
-                              alt="Test"
-                            />
-                          </a>
-                        </div>
-                        <div className="product-name">
-                          <a href="/">Product name</a>
-                        </div>
-                        <div className="about">
-                          <div className="price">
-                            <h3>£100</h3>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    {this.state.results &&
+                      this.state.results.artists.map(item => {
+                        return <SearchItem item={item} role="artists" />;
+                      })}
                   </div>
-                  <nav>
-                    <ul className="pagination">
-                      <li className="page-item disabled">
-                        <a href="/" className="page-link" aria-label="Previous">
-                          <span aria-hidden="true">«</span>
-                        </a>
-                      </li>
-                      <li className="page-item active">
-                        <a href="/" className="page-link">
-                          1
-                        </a>
-                      </li>
-                      <li className="page-item ">
-                        <a href="/" className="page-link">
-                          2
-                        </a>
-                      </li>
-                      <li className="page-item ">
-                        <a href="/" className="page-link">
-                          3
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a href="/" className="page-link" aria-label="Next">
-                          <span aria-hidden="true">»</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
+                </div>
+              </div>
+              <div className="col-md-12">
+                <div className="products">
+                  <h3 className="text-center">Collections</h3>
+                  <div className="row no-gutters">
+                    {this.state.results &&
+                      this.state.results.collections.map(item => {
+                        return <SearchItem item={item} role="collections" />;
+                      })}
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-12">
+                <div className="products">
+                  <h3 className="text-center">Products</h3>
+                  <div className="row no-gutters">
+                    {this.state.results &&
+                      this.state.results.artworks.map(item => {
+                        return <SearchItem item={item} role="product" />;
+                      })}
+                  </div>
                 </div>
               </div>
             </div>

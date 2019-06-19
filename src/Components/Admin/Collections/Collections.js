@@ -2,68 +2,54 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import TableComponent from "./TableComponent";
+import CollectionModal from "./CollectionModal";
 
 class AdminCollections extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collections: null
-    };
-    this.deleteCollection = this.deleteCollection.bind(this);
-  }
+  state = {
+    collections: null
+  };
 
   componentDidMount() {
     this.getCollections();
   }
 
-  componentWillReceiveProps(props) {
-    if (props.items) {
-      this.getCollections();
+  getCollections = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/collections");
+      this.setState({ collections: response.data });
+    } catch (err) {
+      console.log(err);
     }
-  }
-
-  getCollections = () => {
-    axios
-      .get("http://localhost:5000/api/collections")
-      .then(response => {
-        this.setState({ collections: response.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
   };
 
-  deleteCollection = e => {
-    const collection = [...this.state.collections];
-    collection.splice(e.target.name - 1, 1);
-    this.setState({ collections: collection });
-    axios
-      .delete(`/api/delete-collection/${e.target.value}`)
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  deleteCollection = async item => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:5000/api/collections/${item._id}`
+      );
+      this.getCollections();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   render() {
-    if (this.state.collections) {
-      return (
-        <div>
-          <div>
-            <h2 className="text-center">Collections</h2>
-          </div>
-          <p>Number of collections: {this.state.collections.length}</p>
-          <TableComponent
-            item={this.state.collections}
-            handler={this.deleteCollection}
-          />
-        </div>
-      );
-    } else {
-      return <p>Loading...</p>;
-    }
+    return (
+      <div className="container" style={{ marginTop: "100px" }}>
+        <h2 className="text-center">Collections</h2>
+
+        <CollectionModal getCollections={this.getCollections} />
+        {this.state.collections && (
+          <React.Fragment>
+            <p>Number of collections: {this.state.collections.length}</p>
+            <TableComponent
+              item={this.state.collections}
+              deleteCollection={this.deleteCollection}
+            />
+          </React.Fragment>
+        )}
+      </div>
+    );
   }
 }
 

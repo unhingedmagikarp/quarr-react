@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Ionicon from "react-ionicons";
 import { Input } from "reactstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class SearchButton extends Component {
   state = {
@@ -22,13 +23,17 @@ class SearchButton extends Component {
     return (
       <div className="buttonParent">
         <Input style={{ border: "none" }} onChange={this.handleChange} />
-        <a href={`/search/${this.state.searchInfo}`}>
+        <Link to={`/search/${this.state.searchInfo}`}>
           <div className="searchDiv" onClick={this.showSome}>
             <button className="searchButton" style={{ visibility: "hidden" }}>
-              <Ionicon icon="md-search" className="icon searchIcon" />
+              <Ionicon
+                icon="md-search"
+                className="icon searchIcon"
+                style={{ marginTop: "6px" }}
+              />
             </button>
           </div>
-        </a>
+        </Link>
       </div>
     );
   }

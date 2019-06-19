@@ -13,22 +13,13 @@ import {
 import axios from "axios";
 
 class CollectionModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-      nestedModal: false,
-      closeAll: false,
-      checked: true,
-      uploaded: false
-    };
-
-    this.toggle = this.toggle.bind(this);
-    this.toggleNested = this.toggleNested.bind(this);
-    this.toggleAll = this.toggleAll.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFormChange = this.handleFormChange.bind(this);
-  }
+  state = {
+    modal: false,
+    nestedModal: false,
+    closeAll: false,
+    checked: true,
+    uploaded: false
+  };
 
   componentDidMount() {
     axios
@@ -41,59 +32,43 @@ class CollectionModal extends React.Component {
       });
   }
 
-  async handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     const data = new FormData();
-    data.append("artist", this.state.artist);
-    data.append("collectionName", this.state.collectionName);
+    data.append("artist_id", this.state.artist_id);
+    data.append("name", this.state.collectionName);
     data.append("description", this.state.description);
     data.append("categoryType", this.state.categoryType);
-    data.append("image", this.state.image);
+    data.append("file", this.state.image);
     axios
-      .post("/api/new-collection", data, {
+      .post("http://localhost:5000/api/collections", data, {
         headers: { "Content-Type": "multipart/form-data" }
       })
-      .then(response => {
-        setTimeout(() => {
-          this.props.handler();
-          this.emptyState();
-          this.props.handler();
-        }, 500);
-      })
+      .then(response => this.props.getCollections())
       .catch(err => {
         console.log(err);
       });
-  }
-
-  emptyState = () => {
-    this.setState({
-      description: "",
-      collectionName: "",
-      image: "",
-      categoryType: "",
-      artist: ""
-    });
   };
 
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
-  }
+  };
 
-  toggleNested() {
+  toggleNested = () => {
     this.setState({
       nestedModal: !this.state.nestedModal,
       closeAll: false
     });
-  }
+  };
 
-  toggleAll() {
+  toggleAll = () => {
     this.setState({
       nestedModal: !this.state.nestedModal,
       closeAll: true
     });
-  }
+  };
 
   fileHandler = e => {
     this.setState({ image: e.target.files[0] });
@@ -117,7 +92,7 @@ class CollectionModal extends React.Component {
         return (
           <option />,
           (
-            <option key={index} value={item.name}>
+            <option key={index} value={item._id}>
               {item.name}
             </option>
           )
@@ -142,8 +117,8 @@ class CollectionModal extends React.Component {
                 <Label for="name">Artist name</Label>
                 <Input
                   type="select"
-                  name="artist"
-                  id="artist"
+                  name="artist_id"
+                  id="artist_id"
                   placeholder="Artist name"
                   onChange={this.handleFormChange}
                 >

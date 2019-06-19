@@ -17,12 +17,13 @@ import SingleArtistSite from "./Components/SingleArtist/SingleArtistSite";
 import CollectionsWrapper from "./Components/Collections/CollectionsWrapper";
 import Product from "./Components/Product/Product";
 import Cart from "./Components/Checkout/Cart";
+import CheckoutForm from "./Components/Checkout/Checkout";
 
 // Admin pages
 import Navigation from "./Components/Admin/Navigation/AdminNav";
 import AdminContacts from "./Components/Admin/Contacts/Contacts";
 import ArtistPanel from "./Components/Admin/Artist/ArtistPanel";
-import CollectionForm from "./Components/Admin/Collections/CollectionForm";
+import Collections from "./Components/Admin/Collections/Collections";
 import Artist from "./Components/Admin/Artist/DetailedArtist/Artist";
 
 class App extends Component {
@@ -71,13 +72,17 @@ class App extends Component {
             <Route path="/contact-us" component={ContactPage} exact />
             <Route path="/success" component={SuccessPage} exact />
             <Route path="/privacy" component={Privacy} exact />
-            <Route path="/search" component={SearchPage} />
+            <Route
+              path="/search/:term"
+              render={props => <SearchPage {...props} />}
+            />
             <Route path="/cart" component={Cart} />
+            <Route path="/checkout" component={CheckoutForm} exact />
 
             {/* <Route path="/" component={Users} exact /> */}
             <Route path="/admin/artists" component={ArtistPanel} exact />
             <Route path="/admin/artists/:name" component={Artist} />
-            <Route path="/admin/collections" component={CollectionForm} exact />
+            <Route path="/admin/collections" component={Collections} exact />
             {/* <Route path="/admin/collections/:id" component={Collection} />  */}
             <Route path="/admin/contacts" component={AdminContacts} exact />
             {/* <Route path="/admin-login" component={AdminLogin} exact /> */}

@@ -7,7 +7,7 @@ import {
   NavLink,
   Container
 } from "reactstrap";
-import "./Navigation.css";
+import "./Navigation.scss";
 import SearchButton from "./SearchButton";
 import { Link } from "react-router-dom";
 import Basket from "./Basket";

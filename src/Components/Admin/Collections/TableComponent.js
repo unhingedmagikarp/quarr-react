@@ -3,6 +3,7 @@ import { Table, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const TableComponent = props => {
+  console.log(props.item);
   return (
     <Table>
       <thead>
@@ -44,7 +45,7 @@ const TableComponent = props => {
                   color="danger"
                   value={item._id}
                   name={index}
-                  onClick={props.handler}
+                  onClick={() => props.deleteCollection(item)}
                 >
                   Delete
                 </Button>
