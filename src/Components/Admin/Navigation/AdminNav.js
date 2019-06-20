@@ -10,6 +10,7 @@ import {
   Container
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import NewArtwork from "./NewArtwork";
 
 // import NewArt from "../Artwork/NewArt";
 import "./Navigation.css";
@@ -53,7 +54,9 @@ class Navigation extends Component {
                     Users
                   </NavLink>
                 </NavItem>
-                <NavItem>{/* <NewArt buttonLabel="New Art" /> */}</NavItem>
+                <NavItem>
+                  <NewArtwork />
+                </NavItem>
               </Nav>
             </Collapse>
           </Container>

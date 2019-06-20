@@ -14,7 +14,6 @@ class Contact extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
 
     const { name, subject, email, message } = this.state;
     axios

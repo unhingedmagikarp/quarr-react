@@ -10,8 +10,8 @@ import {
   Label,
   Input
 } from "reactstrap";
-import Switch from "react-switch";
 import axios from "axios";
+import Switch from "react-switch";
 
 class EditArtist extends React.Component {
   state = {
@@ -90,7 +90,6 @@ class EditArtist extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <Button

@@ -42,7 +42,6 @@ class Product extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         {this.state.selected ? (

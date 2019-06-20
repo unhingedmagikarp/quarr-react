@@ -14,9 +14,9 @@ class SearchButton extends Component {
   };
 
   showSome = () => {
-    axios.get(`/api/search/${this.state.searchInfo}`).then(response => {
-      console.log(response.data);
-    });
+    // axios.get(`/api/search/${this.state.searchInfo}`).then(response => {
+    //   console.log(response.data);
+    // });
   };
 
   render() {

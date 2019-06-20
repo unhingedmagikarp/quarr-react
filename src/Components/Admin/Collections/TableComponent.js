@@ -3,7 +3,6 @@ import { Table, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const TableComponent = props => {
-  console.log(props.item);
   return (
     <Table>
       <thead>

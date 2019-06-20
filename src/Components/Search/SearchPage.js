@@ -14,7 +14,6 @@ class SearchPage extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <section className="clean-block clean-catalog dark">
         <div className="container">

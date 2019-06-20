@@ -10,7 +10,6 @@ class Collection extends Component {
     axios
       .get(`http://localhost:5000/api/collections/${urlPath}`)
       .then(response => {
-        console.log(response);
         this.setState({ collection: response.data });
       })
       .catch(err => {
